@@ -1,0 +1,12 @@
+services:
+  pulsarr:
+    image: lakker/pulsarr:latest
+    container_name: minerva-pulsarr
+    ports:
+      - "3003:3003"
+    volumes:
+      - ./data:/app/data
+      - .env:/app/.env
+    restart: unless-stopped
+    env_file:
+      - .env
