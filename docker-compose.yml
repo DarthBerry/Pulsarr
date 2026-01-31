@@ -5,8 +5,13 @@ services:
     ports:
       - "3003:3003"
     volumes:
-      - ./data:/app/data
+      - ./volume1/docker/minerva-pulsarr:/app/data
       - .env:/app/.env
     restart: unless-stopped
     env_file:
       - .env
+    networks:
+      - bridge
+networks:
+  bridge:
+    driver: bridge
